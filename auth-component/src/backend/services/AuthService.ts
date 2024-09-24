@@ -44,4 +44,15 @@ export class AuthService {
   private generateToken(userId: string): string {
     return jwt.sign({ userId }, process.env.JWT_SECRET!, { expiresIn: '1d' });
   }
+
+  async requestPasswordReset(email: string): Promise<string> {  // <-- Added this method
+    const user = await this.userRepository.findOne({ where: { email } });
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    // Here you would generate a password reset token and send it via email
+    // For simplicity, we'll just return a success message
+    return 'Password reset link has been sent to your email';
+  }
 }

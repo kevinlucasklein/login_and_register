@@ -11,6 +11,7 @@ scalar DateTimeISO
 type Mutation {
   login(email: String!, password: String!): String!
   register(email: String!, password: String!, username: String!): Boolean!
+  requestPasswordReset(email: String!): String!
 }
 
 type Query {

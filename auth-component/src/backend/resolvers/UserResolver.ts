@@ -30,4 +30,9 @@ export class UserResolver {
   ) {
     return this.authService.register(email, password, username);
   }
+
+  @Mutation(() => String)  // <-- Added this method
+  async requestPasswordReset(@Arg('email') email: string) {
+    return this.authService.requestPasswordReset(email);
+  }
 }

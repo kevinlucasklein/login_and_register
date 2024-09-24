@@ -22,6 +22,7 @@
           variables: { email, password }
         });
         localStorage.setItem('token', result.data.login);
+        console.log('Login successful');
         // Redirect to profile page or update app state
       } catch (e) {
         error = e.message;
